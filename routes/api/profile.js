@@ -7,8 +7,8 @@ const path = require("path");
 const router = express.Router();
 
 const s3 = new aws.S3({
-  accessKeyId: "AKIAJFG2N4W2HB5S3VNA",
-  secretAccessKey: "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",
+  accessKeyId: "*****",
+  secretAccessKey: "*****",
   Bucket: "fileup123",
 });
 
