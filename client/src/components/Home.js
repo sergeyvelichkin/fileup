@@ -127,7 +127,7 @@ const Home = () => {
       {shortLink && (
         <div class="alert alert-success" role="alert">
           File sucessfully uploaded and is available here
-          <a href={shortLink}> {shortLink} </a>
+          <a href={"https://" + shortLink}> {shortLink}</a>
         </div>
       )}
     </div>
