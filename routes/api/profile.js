@@ -3,12 +3,11 @@ const aws = require("aws-sdk");
 const multerS3 = require("multer-s3");
 const multer = require("multer");
 const path = require("path");
-
 const router = express.Router();
 
 const s3 = new aws.S3({
-  accessKeyId: "AKIAJFG2N4W2HB5S3VNA",
-  secretAccessKey: "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",
+  accessKeyId: process.env.AWS_KEY_ID,
+  secretAccessKey: process.env.AWS_KEY_SECRET,
   Bucket: "fileup123",
 });
 

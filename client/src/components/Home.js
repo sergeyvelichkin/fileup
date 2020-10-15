@@ -9,6 +9,7 @@ const Home = () => {
 
   // Making request to rebrandly to shorten URL that amazon S3 sent back to us
   const urlShortener = (url) => {
+    console.log("ENV >>> ", process.env);
     let linkRequest = {
       destination: url,
       domain: { fullName: "rebrand.ly" },
@@ -16,8 +17,8 @@ const Home = () => {
 
     let requestHeaders = {
       "Content-Type": "application/json",
-      apikey: "212d576f073c418db5bb708cd0c65359",
-      workspace: "39b3836da6a94b7e87e00b1e27b391bb",
+      apikey: process.env.REACT_APP_SHORTURL_API_KEY,
+      workspace: process.env.REACT_APP_SHORTURL_WORKSPACE,
     };
 
     axios({
@@ -34,7 +35,8 @@ const Home = () => {
         setShortLink(response.data.shortUrl);
       })
       .catch((err) => {
-        setErrFound({ message: err });
+        setErrFound({ message: "Api rebrandly log in problem" });
+        console.log(err);
       });
   };
 
@@ -80,7 +82,7 @@ const Home = () => {
         .catch((error) => {
           setUploading(false);
           // If another error
-          setErrFound({ message: error });
+          setErrFound({ message: "Server related problem" });
         });
     } else {
       setUploading(false);
@@ -125,7 +127,7 @@ const Home = () => {
         </div>
       </div>
       {shortLink && (
-        <div class="alert alert-success" role="alert">
+        <div className="alert alert-success" role="alert">
           File sucessfully uploaded and is available here
           <a href={"https://" + shortLink}> {shortLink}</a>
         </div>
