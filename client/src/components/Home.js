@@ -17,8 +17,8 @@ const Home = () => {
 
     let requestHeaders = {
       "Content-Type": "application/json",
-      apikey: process.env.REACT_APP_SHORTURL_API_KEY,
-      workspace: process.env.REACT_APP_SHORTURL_WORKSPACE,
+      apikey: "212d576f073c418db5bb708cd0c65359",
+      workspace: "39b3836da6a94b7e87e00b1e27b391bb",
     };
 
     axios({

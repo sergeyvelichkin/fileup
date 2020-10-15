@@ -62,7 +62,6 @@ router.post("/img-upload", (req, res) => {
         // If Success
         const imageName = req.file.key;
         const imageLocation = req.file.location;
-        // Save the file name into database into profile model
         res.json({
           image: imageName,
           location: imageLocation,
